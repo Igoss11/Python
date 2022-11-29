@@ -8,4 +8,4 @@ a = 1
 while n >= a:
     fact = fact*a
     a += 1
-    print(fact)
+    print(f'Произведения чисел: {fact}')
