@@ -2,5 +2,5 @@
 
 from math import pi
 
-n = int(input('Введите число для заданной точности числа Пи: '))
-print(f'число Пи: {round(pi, n)}')
+n = int(input('Введите заданную точность: '))
+print(f'Число Пи: {round(pi, n)}')
