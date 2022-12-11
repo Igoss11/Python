@@ -17,7 +17,7 @@ for i in range(len(list)):
 print(f'Сумма элементов на нечётной позиции = {sum}')
 
 
-# Новое решение:
+# Новое решение c map и enumerate:
 
 
 result = list(map(int, [2, 3, 5, 9, 3]))
