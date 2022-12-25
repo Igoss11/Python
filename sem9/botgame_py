@@ -1,7 +1,7 @@
 import telebot
 from random import randint
 
-bot = telebot.TeleBot('5959258558:AAG_EgYpPTnwf6Mux2NI0EVWoGu5DFh3aJw')
+bot = telebot.TeleBot('Введите свой Телеграм-Токен')
 
 
 candies = 117
