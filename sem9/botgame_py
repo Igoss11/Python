@@ -1,0 +1,40 @@
+import telebot
+from random import randint
+
+bot = telebot.TeleBot('5959258558:AAG_EgYpPTnwf6Mux2NI0EVWoGu5DFh3aJw')
+
+
+candies = 117
+
+
+def Game(candies, number):
+    candies -= number
+    return candies
+
+
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+    bot.send_message(message.chat.id, 'Игра в конфеты. Сколько возьмете конфет?')
+
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    global candies
+    if int(message.text) > 28 or int(message.text) < 1:
+        bot.send_message(message.chat.id, 'Ошибка, столько взять нельзя')
+    else:
+        candies = Game(candies, int(message.text))
+        if candies < 1:
+            bot.send_message(message.chat.id, 'Вы победили!')
+        else:
+            bot.send_message(message.chat.id, f'Вы взяли {message.text} конфет. Осталось {candies} конфет.')
+            botnumber = randint(1, 28)
+            candies = Game(candies, botnumber)
+            if candies < 1:
+                bot.send_message(message.chat.id, 'Бот выиграл')
+            else:
+                bot.send_message(message.chat.id, f'Бот взял {botnumber} конфет. Осталось {candies} конфет.')
+                bot.send_message(message.chat.id, 'Сколько возьмете конфет?')
+
+
+bot.infinity_polling()
